@@ -1,0 +1,297 @@
+ul{
+    padding: 0;
+
+    li{
+        display: block;
+    }
+}
+
+a{
+    text-decoration: none;
+
+    &:hover, &:focus{
+        text-decoration: none;
+    }
+}
+body, html{
+    background: #222;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+.navigation{
+    background: #0c0c0e;
+    width: 100px;
+    height: 100%;
+    float: left;
+
+    .button-nav{
+        width: 30px;
+        position: relative;
+        padding: 6px 0;
+        margin: 30px auto;
+        .barre{
+            width: 100%;
+            height: 2px;
+            background: #FFF;
+            &:before, &:after{
+                content: '';
+                position: absolute;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: #FFF;
+            }
+            &:before{
+                top: 0;
+            }
+            &:after{
+                bottom: 0;
+            }
+        }
+    }
+
+    .logo{
+        background: #FFF;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        z-index: 300;
+        left: 100px;
+        top: 0;
+        line-height: 95px;
+        text-align: center;
+        vertical-align: middle;
+        img{
+            vertical-align: middle;
+            width: 77px;
+            display: inline-block;
+        }
+    }
+    .share{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: rotate(-90deg) translate(50%, -50%);
+        -webkit-transform: rotate(-90deg) translate(50%, -50%);
+        -moz-transform: rotate(-90deg) translate(50%, -50%);
+
+    }
+    .container-social{
+        .social{
+            margin-bottom: 13px;
+            li{
+                display: inline-block;
+                margin: 0 8px;
+                a{
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-size: 10px;
+                    opacity: .7;
+                    @include transition(.3s);
+
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container-grid{
+    position: relative;
+    width: calc( 100% - 100px );
+    height: 100%;
+    float: right;
+    @include transition(.5s);
+    overflow: hidden;
+
+    &.slide-up{
+        height: 0;
+    }
+
+    .push{
+        position: absolute;
+        display: block;
+        overflow: hidden;
+        background: #111;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        &:after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left:0;
+            top: 0;
+            background: rgba(#000, .8);
+            @include transition(.3s);
+        }
+
+        &:before{
+            content: '';
+            width: calc(100% - 30px);
+            height: calc(100% - 30px);
+            top: 15px;
+            left: 15px;
+            border: 1px solid rgba(#FFF, .1);
+            position: absolute;
+            z-index: 2;
+        }
+
+        .load-archive{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 30;
+            @include translate(-50%, -50%);
+            opacity: 0;
+            svg{
+                @include rotate(-90deg);
+                circle{
+                    stroke-dasharray: 900;
+                    stroke-dashoffset: 900;
+                    @include transition(2s);
+                    stroke: rgba(#FFF, .3);
+                }
+            }
+
+            &.loading{
+                opacity: 1;
+                svg{
+                    circle{
+                        stroke-dashoffset: 0;
+                    }
+                }
+            }
+        }
+        .title{
+            font-family: 'Merriweather', serif;
+            font-size:  27px;
+            color: #FFF;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+	        -moz-osx-font-smoothing: grayscale;
+        }
+
+        .img-push{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .more{
+            font-size: 13px;
+            font-weight: 300;
+            color: #FFF;
+            width: 21px;
+            height: 21px;
+            line-height: 20px;
+            border: 1px solid rgba(#FFF, .4);
+            left: 50%;
+            @include translate(-50%, 5px);
+            margin-top: 10px;
+            display: block;
+            border-radius: 50%;
+            -webkit-font-smoothing: antialiased;
+	        -moz-osx-font-smoothing: grayscale;
+            opacity: 0;
+            position: absolute;
+            @include transition(.3s);
+        }
+
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 3;
+            width: 100%;
+            @include translate(-50%, -50%);
+            text-align: center;
+        }
+
+        &.push-1{
+            width: 50%;
+            height: 65%;
+            top: 0;
+            left: 0;
+        }
+        &.push-2{
+            width: 50%;
+            height: 35%;
+            left: 0;
+            top: 65%;
+        }
+        &.push-3{
+            width: 25%;
+            height: 35%;
+            left: 50%;
+            top: 0;
+        }
+        &.push-4{
+            width: 25%;
+            height: 35%;
+            left: 75%;
+            top: 0;
+        }
+        &.push-5{
+            width: 50%;
+            height: 65%;
+            top: 35%;
+            left: 50%;
+        }
+
+        &:hover{
+
+            &:after{
+                background: rgba(#000, .6);
+            }
+            .more{
+                opacity: 1;
+                @include translate(-50%, 0);
+            }
+        }
+
+        &.open{
+            width: 100%;
+            z-index: 30;
+            height: 100%;
+            left: 0;
+            top: 0;
+            will-change: auto;
+
+            .img-push{
+                display: none;
+            }
+        }
+    }
+}
+
+.load{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    left: 0;
+    top: 0;
+    z-index: 500;
+    .logo-load{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include translate(-50%, -50%);
+
+        img{
+            width: 100px;
+        }
+    }
+}
