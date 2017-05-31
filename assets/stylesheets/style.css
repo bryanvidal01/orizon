@@ -9151,18 +9151,16 @@ body, html {
   width: calc( 100% - 100px );
   height: 100%;
   float: right;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
   overflow: auto;
 }
-/* line 20, ../sass/pages/_archive.scss */
+/* line 19, ../sass/pages/_archive.scss */
 .container-service .item-service {
   width: 100%;
   height: 38%;
   position: relative;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 /* line 27, ../sass/pages/_archive.scss */
 .container-service .item-service .text-item {
@@ -9170,9 +9168,6 @@ body, html {
   left: 50%;
   text-align: center;
   top: 50%;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
@@ -9185,13 +9180,26 @@ body, html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 43, ../sass/pages/_archive.scss */
+/* line 42, ../sass/pages/_archive.scss */
 .container-service .item-service:after {
   content: '';
-  width: 100%;
-  height: 100%;
+  bottom: 0;
+  right: 0;
   position: absolute;
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.6);
+}
+
+/* line 1, ../sass/pages/_single.scss */
+.content-single {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: -30px;
+  position: relative;
+  z-index: 30;
+}
+/* line 7, ../sass/pages/_single.scss */
+.content-single img {
+  width: 100%;
 }
